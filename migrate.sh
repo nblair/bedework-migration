@@ -18,6 +18,7 @@ fi
 cd "`dirname $0`"
 BASE_DIR=`pwd`
 SCRIPT_DIR=$BASE_DIR/migration-scripts
+POM_DIR=$BASE_DIR/migration-poms
 
 svnrepo=$1
 gitrepo=$2
@@ -34,9 +35,13 @@ echo "##########################################################################
 
 
 cd $BASE_DIR/projects
-echo Cloning git@github.com:Bedework/$gitrepo.git
 rm -rf $gitrepo
+echo Cloning git@github.com:Bedework/$gitrepo.git
 git clone git@github.com:Bedework/$gitrepo.git
+if [ ! -d "$BASE_DIR/projects/$gitrepo" ]; then
+  echo Failed to clone git@github.com:Bedework/$gitrepo.git
+  exit 1
+fi
 cd $BASE_DIR/projects/$gitrepo
 echo Running svn2git on https://www.bedework.org/svn/$svnrepo
 svn2git https://www.bedework.org/svn/$svnrepo --verbose --authors $BASE_DIR/resolvedAuthors.txt
@@ -48,6 +53,7 @@ git rebase trunk
 git pull
 source $common_script
 source $script
+cp -rf $POM_DIR/$gitrepo/* .
 git commit -a -m "Changes made to project structure for mavenization (migration from SVN to github)."
 #git push --mirror
 echo Done.
