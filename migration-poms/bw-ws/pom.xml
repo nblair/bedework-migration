@@ -7,9 +7,11 @@
 	<packaging>pom</packaging>
 	<name>bedework-xml</name>
 	<properties>
+		<maven.compiler.plugin.version>2.3.2</maven.compiler.plugin.version>
 		<maven.jaxb.plugin.version>1.1.1</maven.jaxb.plugin.version>
 		<maven.buildHelper.plugin.version>1.7</maven.buildHelper.plugin.version>
 		<maven.antRun.plugin.version>1.7</maven.antRun.plugin.version>
+		<maven.eclipse.plugin.version>2.8</maven.eclipse.plugin.version>
 	</properties>
 	<modules>
 		<module>bw-ws-icalendar</module>
