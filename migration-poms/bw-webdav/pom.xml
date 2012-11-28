@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.jasig.bedework</groupId>
+		<artifactId>bedework</artifactId>
+		<version>4.0.0-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<artifactId>bedework-webdav</artifactId>
+	<name>bedework-webdav</name>
+	<dependencies>
+		<!-- Project Dependencies -->
+		<dependency>
+			<groupId>org.jasig.bedework</groupId>
+			<artifactId>bedework-util</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jasig.bedework</groupId>
+			<artifactId>bedework-access</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jasig.bedework</groupId>
+			<artifactId>bedework-davutil</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<!-- Third Party Dependencies -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+		</dependency>
+	</dependencies>
+</project>

@@ -34,5 +34,14 @@ rm -rf icalendar
 rm -rf icalendar-strict
 rm -rf timezones
 rm -rf vcard
-
+# Reorganize calws-soap
+mkdir -p src/main/wsdls/calws-soap
+mkdir -p src/main/schemas/calws-soap
+git mv calws-soap/*.xsd src/main/schemas/calws-soap/.
+git mv calws-soap/wsdlbindings src/main/wsdls/calws-soap/.
+git mv calws-soap/*.wsdl src/main/wsdls/calws-soap/.
+git rm -r calws-soap
+rm -rf calws-soap
+sed -i 's/\.\.\/schemas\//\.\.\//' src/main/schemas/calws-soap/*.xsd
+sed -i 's/wsmessages\.xsd/\.\.\/\.\.\/schemas\/calws-soap\/wsmessages\.xsd/' src/main/wsdls/calws-soap/*.wsdl
 

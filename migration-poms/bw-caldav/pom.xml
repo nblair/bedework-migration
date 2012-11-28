@@ -1,0 +1,141 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.bedework</groupId>
+	<artifactId>bw-caldav</artifactId>
+	<version>4.0.0-SNAPSHOT</version>
+	<name>bw-caldav</name>
+
+	<properties>
+		<!-- Maven Plugin Versions -->
+		<maven.compiler.plugin.version>2.3.2</maven.compiler.plugin.version>
+		<maven.source.plugin.version>2.1.2</maven.source.plugin.version>
+		<!-- Bedework Versions -->
+		<bw-access.version>4.0.0-SNAPSHOT</bw-access.version>
+		<bw-davutil.version>4.0.0-SNAPSHOT</bw-davutil.version>
+		<bw-util.version>4.0.0-SNAPSHOT</bw-util.version>
+		<bw-webdav.version>4.0.0-SNAPSHOT</bw-webdav.version>
+		<bw-ws.version>4.0.0-SNAPSHOT</bw-ws.version>
+		<!-- Third Party Library Versions -->
+		<servlet-api.version>2.5</servlet-api.version>
+		<ical4j.version>1.0.4</ical4j.version>
+		<log4j.version>1.2.15</log4j.version>
+	</properties>
+
+	<organization>
+		<name>Bedework</name>
+		<url>https://github.com/Bedework</url>
+	</organization>
+
+	<licenses>
+		<license>
+			<name>Apache License Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+		</license>
+	</licenses>
+
+	<scm>
+		<connection>scm:git:git://github.com/Bedework/bw-caldav.git</connection>
+		<developerConnection>scm:git:git://github.com/Bedework/bw-caldav.git</developerConnection>
+		<url>https://github.com/Bedework/bw-caldav</url>
+	</scm>
+
+	<issueManagement>
+		<system>github</system>
+		<url>https://github.com/Bedework/bw-caldav/issues</url>
+	</issueManagement>
+
+	<dependencies>
+		<!-- Bedework: Access -->
+		<dependency>
+			<groupId>org.bedework</groupId>
+			<artifactId>bedework-access</artifactId>
+			<version>${bw-access.version}</version>
+		</dependency>
+		<!-- Bedework: DAVUtil -->
+		<dependency>
+			<groupId>org.bedework</groupId>
+			<artifactId>bedework-davutil</artifactId>
+			<version>${bw-davutil.version}</version>
+		</dependency>
+		<!-- Bedework: Util -->
+		<dependency>
+			<groupId>org.bedework</groupId>
+			<artifactId>bedework-util</artifactId>
+			<version>${bw-util.version}</version>
+		</dependency>
+		<!-- Bedework: WebDAV -->
+		<dependency>
+			<groupId>org.bedework</groupId>
+			<artifactId>bedework-webdav</artifactId>
+			<version>${bw-webdav.version}</version>
+		</dependency>
+		<!-- Bedework: Web Services -->
+		<dependency>
+			<groupId>org.bedework</groupId>
+			<artifactId>bw-ws-caldav</artifactId>
+			<version>${bw-ws.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.bedework</groupId>
+			<artifactId>bw-ws-calws-soap</artifactId>
+			<version>${bw-ws.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.bedework</groupId>
+			<artifactId>bw-ws-synchws</artifactId>
+			<version>${bw-ws.version}</version>
+		</dependency>
+		<!-- Third Party Dependencies -->
+		<dependency>
+			<groupId>org.mnode.ical4j</groupId>
+			<artifactId>ical4j</artifactId>
+			<version>${ical4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>${servlet-api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- Specify the compiler options and settings -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.plugin.version}</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<showDeprecation>false</showDeprecation>
+					<showWarnings>false</showWarnings>
+				</configuration>
+			</plugin>
+			<!-- Produce source jars during the 'verify' phase -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>${maven.source.plugin.version}</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>jar</goal>
+							<goal>test-jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

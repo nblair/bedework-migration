@@ -12,21 +12,20 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>com.sun.tools.xjc.maven2</groupId>
-				<artifactId>maven-jaxb-plugin</artifactId>
-				<version>${maven.jaxb.plugin.version}</version>
+				<groupId>org.jvnet.jax-ws-commons</groupId>
+				<artifactId>jaxws-maven-plugin</artifactId>
+				<version>2.2</version>
 				<executions>
 					<execution>
-						<id>all</id>
 						<goals>
-							<goal>generate</goal>
+							<goal>wsimport</goal>
 						</goals>
 						<configuration>
-							<schemaDirectory>${project.parent.basedir}/src/main/schemas/calws-soap</schemaDirectory>
-							<includeSchemas>
-								<includeSchema>wsmessages.xsd</includeSchema>
-							</includeSchemas>
-							<verbose>true</verbose>
+							<bindingDirectory>../src/main/wsdls/calws-soap/wsdlbindings</bindingDirectory>
+							<wsdlDirectory>../src/main/wsdls/calws-soap</wsdlDirectory>
+							<wsdlFiles>
+								<wsdlFile>wssvc.wsdl</wsdlFile>
+							</wsdlFiles>
 						</configuration>
 					</execution>
 				</executions>
@@ -57,7 +56,7 @@
 				<artifactId>maven-jar-plugin</artifactId>
 				<configuration>
 					<excludes>
-						<exclude>**/icalendar_2/**</exclude>
+<!-- 						<exclude>**/icalendar_2/**</exclude> -->
 					</excludes>
 				</configuration>
 			</plugin>
@@ -74,7 +73,7 @@
 						</goals>
 						<configuration>
 							<sources>
-								<source>${project.build.directory}/generated-sources/xjc</source>
+								<source>${project.build.directory}/generated-sources/wsimport</source>
 							</sources>
 						</configuration>
 					</execution>
@@ -86,7 +85,7 @@
 				<version>${maven.eclipse.plugin.version}</version>
 				<configuration>
 					<sourceIncludes>
-						<sourceInclude>${project.build.directory}/generated-sources/xjc</sourceInclude>
+						<sourceInclude>${project.build.directory}/generated-sources/wsimport</sourceInclude>
 					</sourceIncludes>
 				</configuration>
 			</plugin>
