@@ -11,17 +11,19 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>com.sun.tools.xjc.maven2</groupId>
-				<artifactId>maven-jaxb-plugin</artifactId>
+				<groupId>org.jvnet.jax-ws-commons</groupId>
+				<artifactId>jaxws-maven-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>all</id>
 						<goals>
-							<goal>generate</goal>
+							<goal>wsimport</goal>
 						</goals>
 						<configuration>
-							<schemaDirectory>${project.parent.basedir}/src/main/schemas/exchangews</schemaDirectory>
-							<verbose>true</verbose>
+							<bindingDirectory>../src/main/wsdls/exchangews/wsdlbindings</bindingDirectory>
+							<wsdlDirectory>../src/main/wsdls/exchangews</wsdlDirectory>
+							<wsdlFiles>
+								<wsdlFile>Services.wsdl</wsdlFile>
+							</wsdlFiles>
 						</configuration>
 					</execution>
 				</executions>
@@ -37,6 +39,11 @@
 									<fileset dir="${project.basedir}/../src/main/schemas">
 										<include name="exchangews/**" />
 										<include name="xml.xsd" />
+									</fileset>
+								</copy>
+								<copy todir="${project.build.directory}/classes/META-INF/wsdls">
+									<fileset dir="${project.basedir}/../src/main/wsdls">
+										<include name="exchangews/**" />
 									</fileset>
 								</copy>
 							</target>
@@ -59,7 +66,7 @@
 						</goals>
 						<configuration>
 							<sources>
-								<source>${project.build.directory}/generated-sources/xjc</source>
+								<source>${project.build.directory}/generated-sources/wsimport</source>
 							</sources>
 						</configuration>
 					</execution>
@@ -70,7 +77,7 @@
 				<artifactId>maven-eclipse-plugin</artifactId>
 				<configuration>
 					<sourceIncludes>
-						<sourceInclude>${project.build.directory}/generated-sources/xjc</sourceInclude>
+						<sourceInclude>${project.build.directory}/generated-sources/wsimport</sourceInclude>
 					</sourceIncludes>
 				</configuration>
 			</plugin>

@@ -8,7 +8,7 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>bw-ws-catdav</artifactId>
-	<name>bedework-catdav</name>
+	<name>bw-ws-catdav</name>
 	<build>
 		<plugins>
 			<plugin>

@@ -35,6 +35,9 @@ rm -rf icalendar-strict
 rm -rf timezones
 rm -rf vcard
 
+git rm -r xjcbindings
+rm -rf xjcbindings
+
 # Reorganize calws-soap
 # ###############################3
 mkdir -p src/main/wsdls/calws-soap
@@ -71,6 +74,17 @@ rm -rf exchangews
 sed -i 's/\.\.\/schemas\//\.\.\//' src/main/schemas/exchangews/*.xsd
 sed -i 's/messages\.xsd/\.\.\/\.\.\/schemas\/exchangews\/messages\.xsd/' src/main/wsdls/exchangews/*.wsdl
 
-
-
+# Reorganize synchws
+# ###############################3
+mkdir -p src/main/wsdls/synchws
+mkdir -p src/main/schemas/synchws
+git mv synchws/*.xsd src/main/schemas/synchws/.
+git mv synchws/wsdlbindings src/main/wsdls/synchws/.
+git mv synchws/*.wsdl src/main/wsdls/synchws/.
+git rm -r synchws
+rm -rf synchws
+sed -i 's/\.\.\/schemas\//\.\.\//' src/main/schemas/synchws/*.xsd
+sed -i 's/\"wsmessages\.xsd/\"\.\.\/\.\.\/schemas\/synchws\/wsmessages\.xsd/' src/main/wsdls/synchws/*.wsdl
+sed -i 's/\.\.\/calws-soap\//\.\.\/\.\.\/schemas\/calws-soap\//' src/main/wsdls/synchws/*.xsd
+sed -i 's/\.\.\/calws-soap\//\.\.\/\.\.\/schemas\/calws-soap\//' src/main/wsdls/synchws/*.wsdl
 
