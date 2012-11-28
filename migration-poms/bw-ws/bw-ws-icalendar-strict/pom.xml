@@ -14,7 +14,6 @@
 			<plugin>
 				<groupId>com.sun.tools.xjc.maven2</groupId>
 				<artifactId>maven-jaxb-plugin</artifactId>
-				<version>${maven.jaxb.plugin.version}</version>
 				<executions>
 					<execution>
 						<id>all</id>
@@ -51,7 +50,6 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
-				<version>${maven.buildHelper.plugin.version}</version>
 				<executions>
 					<execution>
 						<id>add-source</id>
@@ -70,7 +68,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>${maven.eclipse.plugin.version}</version>
 				<configuration>
 					<sourceIncludes>
 						<sourceInclude>${project.build.directory}/generated-sources/xjc</sourceInclude>
