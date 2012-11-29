@@ -33,6 +33,11 @@ echo Target github location: http://github.org/Bedework/$gitrepo.git
 echo Project migration script: $script
 echo "#######################################################################################"
 
+if [ ! -f $script ]; then
+  echo "No migration script found at $script"
+  echo "Please create a migration script for this project."
+  exit 1
+fi
 
 cd $BASE_DIR/projects
 rm -rf $gitrepo

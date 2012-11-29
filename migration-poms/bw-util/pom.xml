@@ -15,7 +15,7 @@
 		<bw-ws.version>4.0.0-SNAPSHOT</bw-ws.version>
 		<!-- Third Party Library Versions -->
 		<commons-codec.version>1.5</commons-codec.version>
-		<apache-http.version>4.1.2</apache-http.version>
+		<apache-http.version>4.2.2</apache-http.version>
 		<hibernate.version>3.6.9.Final</hibernate.version>
 		<derby.version>10.8.2.2</derby.version>
 		<h2.version>1.2.130</h2.version>
