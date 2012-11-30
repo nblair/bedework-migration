@@ -13,7 +13,7 @@
 		<maven.source.plugin.version>2.1.2</maven.source.plugin.version>
 		<!-- Bedework Versions -->
 		<bw-access.version>4.0.0-SNAPSHOT</bw-access.version>
-		<bw-davutil.version>4.0.0-SNAPSHOT</bw-davutil.version>
+		<bw-davio.version>4.0.0-SNAPSHOT</bw-davio.version>
 		<bw-util.version>4.0.0-SNAPSHOT</bw-util.version>
 		<bw-webdav.version>4.0.0-SNAPSHOT</bw-webdav.version>
 		<bw-ws.version>4.0.0-SNAPSHOT</bw-ws.version>
@@ -47,28 +47,28 @@
 	</issueManagement>
 
 	<dependencies>
+		<!-- Bedework: Util -->
+		<dependency>
+			<groupId>org.bedework</groupId>
+			<artifactId>bw-util</artifactId>
+			<version>${bw-util.version}</version>
+		</dependency>
 		<!-- Bedework: Access -->
 		<dependency>
 			<groupId>org.bedework</groupId>
-			<artifactId>bedework-access</artifactId>
+			<artifactId>bw-access</artifactId>
 			<version>${bw-access.version}</version>
 		</dependency>
 		<!-- Bedework: DAVUtil -->
 		<dependency>
 			<groupId>org.bedework</groupId>
-			<artifactId>bedework-davutil</artifactId>
-			<version>${bw-davutil.version}</version>
-		</dependency>
-		<!-- Bedework: Util -->
-		<dependency>
-			<groupId>org.bedework</groupId>
-			<artifactId>bedework-util</artifactId>
-			<version>${bw-util.version}</version>
+			<artifactId>bw-davio</artifactId>
+			<version>${bw-davio.version}</version>
 		</dependency>
 		<!-- Bedework: WebDAV -->
 		<dependency>
 			<groupId>org.bedework</groupId>
-			<artifactId>bedework-webdav</artifactId>
+			<artifactId>bw-webdav</artifactId>
 			<version>${bw-webdav.version}</version>
 		</dependency>
 		<!-- Bedework: Web Services -->
@@ -97,6 +97,20 @@
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>${log4j.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>jmxtools</artifactId>
+					<groupId>com.sun.jdmk</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jms</artifactId>
+					<groupId>javax.jms</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>jmxri</artifactId>
+					<groupId>com.sun.jmx</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
